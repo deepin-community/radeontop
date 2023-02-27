@@ -1,5 +1,193 @@
-template-repository (1.0-1) unstable; urgency=medium
+radeontop (1.4-2) unstable; urgency=medium
 
-  * Initial release
+  [ Debian Janitor ]
+  * Use secure copyright file specification URI
+  * Update watch file format version to 4
+  * Bump debhelper from old 12 to 13
+  * Set debhelper-compat version in Build-Depends
+  * Change priority extra to priority optional
+  * Set upstream metadata fields: Bug-Database,
+    Bug-Submit, Repository, Repository-Browse
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ John Paul Adrian Glaubitz ]
+  * Update standards version to 4.6.1 in debian/control
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Mon, 05 Dec 2022 13:17:41 +0100
+
+radeontop (1.4-1) unstable; urgency=medium
+
+  * New upstream release
+    - Update pci ids. Van gogh, yellow carp, navy
+      flounder, dimgrey cavefish, aldebaran
+    - Install radeontop to /usr/bin
+    - Sync translations from launchpad
+  * Add missing newline at the end of debian/control
+  * Switch priority from extra to optional in debian/control
+  * Use correct shortname for GPL-3 license in debian/copyright
+  * Update copyright years in debian/copyright
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Mon, 20 Dec 2021 19:20:35 +0100
+
+radeontop (1.3-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #978095)
+    - Update pci ids, one navi10, new sienna cichlid
+    - Update pot file
+    - Transparency style fixes
+    - Transparency support
+    - Update pci ids: arcturus, renoir, navi12, navi14
+    - Round the size of the percentage bar to the nearest integer
+    - Add Screenshot
+    - Refresh man page
+    - Add a warning when failing to drop DRM master
+    - Add support to open DRM device nodes by pathname
+    - Rework of DRM initialization code
+    - Add support to discover devices via DRM
+    - Move libdrm code to separate functions
+    - Warning fix, make the struct copy explicit
+    - Move pciaccess code to separate functions
+    - Restore libdrm defines, so the non-root-radeon
+      support works on older libdrm but new kernel
+    - Warning fix, clarify two radeon error messages
+    - Update man page
+    - Fix matching PCI bus 0 via command line argument
+    - Add clock frequency reporting to radeon
+    - Check driver version to discover features
+    - Move device dependent code to amdgpu.c and radeon.c
+    - Move amdgpu code to init_amdgpu() and cleanup_amdgpu()
+    - Move radeon initialization code to init_radeon()
+    - Revive previously removed radeon_get_drm_value()
+    - Use directly the backend functions to get GPU usage
+    - Display shader clock on APUs
+    - Documentation update for amdgpu and command line
+    - Update pci ids from latest kernel, Navi10 support
+    - Last commit broke radeon VRAM reading, fix
+    - Split getvram() and getgtt() to separate backends
+    - Replace amdgpu code with libdrm_amdgpu and autodetect it
+    - Add amdgpu backend to getgrbm_device_amdgpu()
+    - Split readgrbm() in two seaparate backend functions
+    - Move device dependent functions to detect.c
+  * Update standards version to 4.5.1 in debian/control.
+  * Update Vcs-* fields for new Salsa project in debian/control.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Fri, 25 Dec 2020 23:46:38 +0100
+
+radeontop (1.2-1) unstable; urgency=medium
+
+  * New upstream release.
+    - update PCI IDs from latest kernel, Navi10 support
+    - update PCI IDs, adding VEGAM, VEGA12 and VEGA20
+    - fix bus being wrong when auto-detecting GPU
+    - add an soname to libradeontop_xcb.so
+    - tune the UI so it fits to normal terminals still
+    - bump the required libdrm version to 2.4.77
+    - add support for memory and shader clock reporting
+    - update man page
+    - add --dump-interval command-line option
+    - fix bus parameter to be hexadecimal
+    - add bus information to dump and UI
+    - don't sleep when dumping the last line
+  * Update standards version to 4.4.0, no changes required.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sat, 07 Sep 2019 15:21:38 +0200
+
+radeontop (1.1-2) unstable; urgency=medium
+
+  * Override dh_auto_build with empty target in debian/rules
+    to avoid radeontop being built twice.
+  * Remove trailing space from dh command line in debian/rules.
+  * Add -DENABLE_AMDGPU=1 to DEB_CFLAGS_MAINT_APPEND to
+    enable amdgpu support. (Closes: #870135)
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sun, 30 Dec 2018 13:16:25 +0100
+
+radeontop (1.1-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #894054)
+    - update PCI IDs for one polaris12 and one raven card
+    - drop privileges for setuid installations
+    - add appstream info file
+    - add support for GTT memory status
+    - update amdgpu PCI IDs; two new ones for old
+      families, polaris 12 and vega 10 cards
+    - various bug fixes and improvements
+  * Bump debhelper version to 12.
+  * Update standards version to 4.2.1, no changes required.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sun, 30 Dec 2018 00:32:12 +0100
+
+radeontop (1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - add support for resizable terminals
+    - add support for VRAM size and usage reporting on amdgpu
+    - add support for Polaris 10 and Polaris 11
+    - add optional unprivileged mode in Xorg
+    - allow unprivileged use of radeontop via console
+    - various bug fixes and improvements
+  * Update standards version to 3.9.8 in debian/control.
+  * Add libxcb1-dev and libxcb-dri2-0-dev to
+    Build-Depends in debian/control.
+  * Update years in debian/copyright.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sat, 08 Apr 2017 19:26:11 +0200
+
+radeontop (0.9-1) unstable; urgency=medium
+
+  * New upstream release.
+    - add support for Topaz, Tonga and Carrizo
+    - refresh PCI IDs of various cards
+    - add support to allow toggling colors while running
+    - make radeontop work even when CONFIG_DEVMEM is disabled
+      in the configuration of the running kernel
+    - add VRAM reporting support
+    - add support for fglrx
+    - various bug fixes and improvements
+  * Update Debian standards version to 3.9.5, no changes required.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Tue, 08 Sep 2015 18:20:12 +0200
+
+radeontop (0.8-1) unstable; urgency=low
+
+  * New upstream release.
+    - update PCI IDs to support Hawaii GPUs and fix the
+      mislabeled Sumo 2 GPUs
+    - improve Makefile to have better control over -g and -s options
+    - build with libdrm support
+    - add VRAM reporting support
+    - refresh translation template
+  * Clean up debian/changelog.
+  * Update Debian standards version to 3.9.5, no changes required.
+  * Add build dependency to libdrm-dev in debian/control.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sat, 03 May 2014 10:31:35 +0200
+
+radeontop (0.7-1) unstable; urgency=low
+
+  * New upstream release.
+    - add complete Russian translation
+    - fix various locales
+    - update PCI IDs to support Oland, Hainan, Bonaire, Kabini
+      and Kaveri GPUs
+    - improve dumping into pipes
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sun, 15 Dec 2013 23:41:17 +0100
+
+radeontop (0.6-2) unstable; urgency=low
+
+  * Include updated watch file (Thanks Bart Martens).
+  * Bump standards to version 3.9.4 (no changes required).
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sun, 27 Jan 2013 23:58:30 +0100
+
+radeontop (0.6-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Thu, 08 Nov 2012 15:10:56 +0100
+
+radeontop (0.5.4.1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #680892)
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Tue, 10 Jul 2012 01:28:50 +0200
