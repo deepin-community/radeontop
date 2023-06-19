@@ -1,15 +1,24 @@
-Source: template-repository
-Section: unknown
+Source: radeontop
+Section: utils
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Build-Depends: debhelper-compat (= 13), libpciaccess-dev, pkg-config, libncurses5-dev, libdrm-dev, libxcb1-dev, libxcb-dri2-0-dev
+Standards-Version: 4.6.1
+Homepage: https://github.com/clbr/radeontop
+Vcs-Browser: https://salsa.debian.org/debian/radeontop
+Vcs-Git: https://salsa.debian.org/debian/radeontop.git
 
-Package: template-repository
+Package: radeontop
 Architecture: any
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Utility to show Radeon GPU utilization
+ radeontop is a small utility which allows one to monitor the utilization of
+ Radeon GPUs starting from the R600 series and newer using undocumented
+ performance counters in the hardware. The utility works with the free
+ drivers.
+ .
+ It displays the utilization of the graphics pipe, event engine, vertex cache,
+ vertex group and tesselator, texture addresser and cache, the shader units
+ and more, both with a relative percent value as well as a colorful bar diagram.
+ .
